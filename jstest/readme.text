@@ -1,0 +1,9 @@
+------------------------------------------------- 编译ES6等--------------------------------------------------
+
+1.babel - loader;
+
+2.babel plugin(bable polyfill 和 bable runtime transform是两个babel plugin):
+
+    2.1bable polyfill: 全局垫片，为应用准备
+    2.2bable runtime transform：局部垫片，为开发框架准备
+
