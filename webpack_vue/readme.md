@@ -47,7 +47,7 @@ entry:{
 }
 output:{
     ...
-    filename:'[name].[chunkhase].js',//使用chunkhash
+    filename:'[name].[chunkhash].js',//使用chunkhash
 }
 plugins:[
     new webpack.optimize.CommonsChunkPlugin({
@@ -78,5 +78,5 @@ import(/*webpackChunkName:'ladash'*/'lodash.js').then(function(a){
 (十分注意：
 1.babel-loader相关的babel-core的版本适配问题
 2.webpack和webpack-cli的适配问题
-3.提取单个css的extract-text-webpack-plugin与webpack(尤其是webpack4.0)的适配问题
+3.提取单个css的extract-text-webpack-plugin与webpack(尤其是webpack4.0)的插件适配问题
 )
