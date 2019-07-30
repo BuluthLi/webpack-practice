@@ -111,4 +111,4 @@ externals实验失败，dll实现成功，并且建议使用dll模式
       manifest: require('../src/dll/iView-manifest.json')
     }),
 3.在index.html引入<script src="./src/dll/iView.dll.js"></script>（注意路径）
-4.以上是引入了js，其他只需引入在main.js中import 'iview/dist/styles/iview.css';
+4.以上是引入了js，其他只需引入在main.js中import 'iview/dist/styles/iview.css',剩余的和按需加载或者全部加载的操作一样;
