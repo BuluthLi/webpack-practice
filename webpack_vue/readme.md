@@ -80,3 +80,35 @@ import(/*webpackChunkName:'ladash'*/'lodash.js').then(function(a){
 2.webpack和webpack-cli的适配问题
 3.提取单个css的extract-text-webpack-plugin与webpack(尤其是webpack4.0)的插件适配问题
 )
+
+
+
+<!-- dll和external -->
+externals实验失败，dll实现成功，并且建议使用dll模式
+
+1.webpack.dll.conf.js
+    var path = require("path");
+    var webpack = require("webpack");
+    module.exports = {
+        // mode: "development || "production",
+        entry: {
+            iView: ['iview']
+        },
+        output: {
+            path: path.join(__dirname, "../src/dll"),
+            filename: "[name].dll.js",
+            library: "[name]"
+        },
+        plugins: [
+            new webpack.DllPlugin({
+                path: path.join(__dirname, "../src/dll", "[name]-manifest.json"),
+                name: "[name]",
+            }),
+            new webpack.optimize.UglifyJsPlugin({})
+        ]
+    };
+2.在webpack.prod.conf.js的plugins中 new webpack.DllReferencePlugin({
+      manifest: require('../src/dll/iView-manifest.json')
+    }),
+3.在index.html引入<script src="./src/dll/iView.dll.js"></script>（注意路径）
+4.以上是引入了js，其他只需引入在main.js中import 'iview/dist/styles/iview.css';

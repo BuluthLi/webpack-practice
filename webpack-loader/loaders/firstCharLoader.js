@@ -5,5 +5,7 @@ module.exports = function (source) {
     let result = source.replace('x', "X");
     //不需要这种写法
     // return result;
+    // console.log(`module.exports='${result}'`);
+    // console.log(`module.exports=${result}`);
     this.callback(null, `module.exports='${result}'`);
 }

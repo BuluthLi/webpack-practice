@@ -1,0 +1,2 @@
+loader本质上是一个函数，输入输出都是字符串，区别是输出的参数会被解析成js代码，从而被esprima解析成AST,触发进一步的依赖解析，
+更多总结看./loaders/replaceLoader.js
